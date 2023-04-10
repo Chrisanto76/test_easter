@@ -1,0 +1,12 @@
+## Fichier : docker-compose.yml
+version: '3'
+services:
+  eggsy:
+    container_name: eggsy
+    build: .
+    ports:
+      - "3000:3000"
+    # stdin_open: true
+    volumes:
+       - .:/usr/src/app/test_easter
+       - /usr/src/app/test_easter/node_modules
