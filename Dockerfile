@@ -3,6 +3,10 @@ FROM node:18.10.0-alpine3.15
 
 WORKDIR /usr/src/app/test_easter
 
+# RUN installe nginx
+# COPY nginx.conf /chemin vers nginx.conf
+# RUN lance nginx avec daemon
+
 COPY package*.json ./
 
 RUN npm install

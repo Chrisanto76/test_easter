@@ -1,6 +1,7 @@
 import { Component } from 'react';
 import Car from './Cars';
-
+ 
+//create state 
 class Mycars extends Component {
     state = {
         voitures: [
@@ -8,38 +9,40 @@ class Mycars extends Component {
             { name: 'Mercedes', color: 'back', year: '2012' },
             { name: 'Peugeot', color: 'green', year: '2020' },
         ],
+        titre: 'Mon Catalogue Voitures 2'
     };
 
     addTenYears = () => {
-        console.log('active');
+
+        const upDatedState = this.state.voitures.map((param) => {
+            return param.year-= 10;
+        })
+
+        //setstate permet a react de comprendre qu'une modificqtion est faite
+        this.setState({
+            upDatedState
+        })
     };
 
     render() {
+
+        const year = new Date().getFullYear();
+
         return (
             <div>
-                <h1>{this.props.title}</h1>
+                <h2 className='big'>{this.state.titre}</h2>
 
-                <button onClick={this.addTenYears}> + 10 ans</button>
-
-                <Car
-                    color={this.state.voitures[0].color}
-                    year={this.state.voitures[0].year}
-                >
-                    {this.state.voitures[0].name}
-                </Car>
-                <Car
-                    color={this.state.voitures[1].color}
-                    year={this.state.voitures[1].year}
-                >
-                    {this.state.voitures[1].name}
-                </Car>
-                <Car
-                    color={this.state.voitures[2].color}
-                    year={this.state.voitures[2].year}
-                >
-                    {this.state.voitures[2].name}
-                </Car>
-            </div>
+                {
+                    this.state.voitures.map((voiture, index) => {
+                        return (
+                            <div key={index}>
+                                <Car brand={voiture.name} color={voiture.color} year={year - voiture.year + ' ans'} />
+                            </div>
+                        )
+                    })
+                }
+                <button className='butt' onClick={this.addTenYears}> + 10 ans</button>
+            </div>    
         );
     }
 }

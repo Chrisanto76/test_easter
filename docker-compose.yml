@@ -10,3 +10,8 @@ services:
     volumes:
        - .:/usr/src/app/test_easter
        - /usr/src/app/test_easter/node_modules
+    tty: true
+  # nginx:
+  #   build : ./nginx
+  #   ports: 80:80
+         
