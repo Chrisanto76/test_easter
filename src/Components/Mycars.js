@@ -6,7 +6,7 @@ class Mycars extends Component {
     state = {
         voitures: [
             { name: 'Ford', color: 'red', year: '2000' },
-            { name: 'Mercedes', color: 'back', year: '2012' },
+            { name: 'Mercedes', color: 'black', year: '2012' },
             { name: 'Peugeot', color: 'green', year: '2020' },
         ],
         titre: 'Mon Catalogue Voitures 2'
